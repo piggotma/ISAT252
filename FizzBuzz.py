@@ -8,4 +8,5 @@ for fizzbuzz in range(51):
     elif fizzbuzz % 5 == 0:
         print("buzz")
         continue
+    
     print(fizzbuzz)
