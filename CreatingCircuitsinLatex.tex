@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[siunitx, americanresistors, americanvoltages, americancurrents, cuteinductors]{circuitikz}
+\usepackage{circuitikz}
+\pagestyle{empty}
+\usepackage{xspace}
+
+
+%___Circuit#1
+\begin{document}
+\begin{circuitikz}
+\node[ground] at (0,0) (gnd1) {};
+\draw (0,0)
+to[V<=1<\volt>, invert] (0,5)
+to[resistor, R=100<\kilo\ohm>] (5,5)
+to[resistor, R=10<\kilo\ohm>] (10,5) -- (10,5)
+to[resistor, R=50<\kilo\ohm>] (10,0) -- (10,0)
+to[resistor, R=1<\kilo\ohm>] (5,0) -- (5,0)
+to[resistor, R=25<\kilo\ohm>] (0,0)
+-- (0,0);
+\end{circuitikz}
+\clearpage
+
+
+
+%___Circuit#2
+\begin{circuitikz}
+\node[ground] at (5,0) (gnd1) {};
+\draw (5,5) to[ospst=(t at 0s)] (10,5);
+\draw (0,0) to[V<=1<\volt>, invert] (0,5) -- (5,5)
+to[C=9<\nano\farad>] (5,0) -- (0,0);
+\draw (5,5) -- (10,5) to[resistor, R=1<\kilo\ohm>] 
+(10,0) -- (5,0)
+\end{circuitikz}
+\clearpage
+
+
+
+%___Circuit#3
+\begin{circuitikz}
+\node[ground] at (0,0) (gnd1) {};
+\draw (0,0)
+to[vsourcesin,Hz=60<\hertz>,invert] (0,5)
+to[resistor,R=100<\kilo\ohm>] (10,5)
+to[inductor,L=2<\milli\henry>] (10,0) -- (10,0)
+to[capacitor,C=50<\micro\farad>] (0,0) -- (0,0);
+\end{circuitikz}
+\end{document}
